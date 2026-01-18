@@ -2,6 +2,7 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('portfolio', () => ({
         darkMode: false,
+        mobileMenuOpen: false,
 
         init() {
             // Check for saved theme preference
@@ -43,30 +44,17 @@ document.addEventListener('alpine:init', () => {
 
         blogs: [
             {
-                title: 'My Blog 1',
-                link: '#',
-                image: 'https://placehold.co/600x400/EEE/31343C?text=Blog+1'
+                title: 'A Complete Guide to Authentication Techniques in Backend Development',
+                link: 'https://ewanblog.com/a-complete-guide-to-authentication-techniques-in-backend-development/',
+                date: 'Nov 30, 2025',
+                image: './images/blogs/auth-guide.jpg'
             },
             {
-                title: 'My Blog 2',
+                title: 'Building Scalable APIs with NestJS',
                 link: '#',
-                image: 'https://placehold.co/600x400/EEE/31343C?text=Blog+2'
+                date: 'Jan 15, 2026',
+                image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop'
             },
-            {
-                title: 'My Blog 3',
-                link: '#',
-                image: 'https://placehold.co/600x400/EEE/31343C?text=Blog+3'
-            },
-            {
-                title: 'My Blog 4',
-                link: '#',
-                image: 'https://placehold.co/600x400/EEE/31343C?text=Blog+4'
-            },
-            {
-                title: 'My Blog 5',
-                link: '#',
-                image: 'https://placehold.co/600x400/EEE/31343C?text=Blog+5'
-            }
         ],
 
         socials: [
@@ -115,21 +103,18 @@ document.addEventListener('alpine:init', () => {
                 description: 'An eCommerce website focused on selling mobile covers with a modern, responsive, and user-friendly shopping experience.',
                 image: './images/projects/wrappers-portal.png',
                 link: '#',
-                tags: ['Typescript', 'NextJS', 'NodeJS', 'NestJS', 'PostgreSQL']
             },
             {
                 title: 'Wrappers Wrap Portal',
                 description: 'An admin panel for managing products, orders, and content of the Wrappers Wrap eCommerce platform.',
                 image: './images/projects/letsdo-portal.png',
                 link: '#',
-                tags: ['Typescript', 'NextJS', 'NodeJS', 'NestJS', 'PostgreSQL']
             },
             {
                 title: 'Letsdo Portal',
                 description: 'A powerful admin portal for managing the Letsdo multi-tenant eCommerce system, providing advanced controls and company-level features.',
-
+                image: './images/projects/letsdo-portal.webp',
                 link: '#',
-                tags: ['Typescript', 'NextJS', 'NodeJS', 'NestJS', 'PostgreSQL']
             }
         ],
 
