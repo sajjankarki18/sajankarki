@@ -5,24 +5,9 @@ document.addEventListener('alpine:init', () => {
         mobileMenuOpen: false,
         currentTime: '',
 
-
         init() {
-            // Check for saved theme preference
-            if (localStorage.getItem('theme') === 'dark' ||
-                (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                this.darkMode = true;
-            }
-
-            this.$watch('darkMode', val => {
-                localStorage.setItem('theme', val ? 'dark' : 'light');
-                if (val) {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                }
-            });
-
-            if (this.darkMode) document.documentElement.classList.add('dark');
+            // Dark mode disabled
+            document.documentElement.classList.remove('dark');
 
             // Initialize clock
             this.updateTime();
@@ -40,9 +25,8 @@ document.addEventListener('alpine:init', () => {
             this.currentTime = new Intl.DateTimeFormat('en-US', options).format(new Date());
         },
 
-
         toggleTheme() {
-            this.darkMode = !this.darkMode;
+            // Disabled
         },
 
         skills: [
@@ -63,15 +47,17 @@ document.addEventListener('alpine:init', () => {
         blogs: [
             {
                 title: 'A Complete Guide to Authentication Techniques in Backend Development',
+                description: 'Explore deep-dives into JWT, Sessions, OAuth2 and how to secure your scalable backend systems.',
                 link: 'https://ewanblog.com/a-complete-guide-to-authentication-techniques-in-backend-development/',
                 date: 'Nov 30, 2025',
                 image: './images/blogs/auth-guide.jpg'
             },
             {
-                title: 'Building Scalable APIs with NestJS',
+                title: 'Junior Devs Use try-catch Everywhere. Senior Devs Use These 4 Exception Handling Patterns',
+                description: 'Try-catch on every method? That’s not safe code—that’s a ticking time bomb. Here’s what senior devs do instead.',
                 link: '#',
-                date: 'Jan 15, 2026',
-                image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop'
+                date: 'Feb 12, 2026',
+                image: './images/blogs/try-catch.png'
             },
         ],
 
