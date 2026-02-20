@@ -3,6 +3,8 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('portfolio', () => ({
         darkMode: false,
         mobileMenuOpen: false,
+        currentTime: '',
+
 
         init() {
             // Check for saved theme preference
@@ -21,7 +23,23 @@ document.addEventListener('alpine:init', () => {
             });
 
             if (this.darkMode) document.documentElement.classList.add('dark');
+
+            // Initialize clock
+            this.updateTime();
+            setInterval(() => this.updateTime(), 1000);
         },
+
+        updateTime() {
+            const options = {
+                timeZone: 'Asia/Kathmandu',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            this.currentTime = new Intl.DateTimeFormat('en-US', options).format(new Date());
+        },
+
 
         toggleTheme() {
             this.darkMode = !this.darkMode;

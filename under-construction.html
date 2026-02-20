@@ -4,21 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs - Sajan N. Karki</title>
-    <meta name="description" content="Read the latest articles and blogs by Sajan N. Karki.">
+    <title>Sajan N. Karki - Fullstack Developer | Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Sajan N. Karki, an enthusiastic Fullstack Developer skilled in TypeScript, React, Node.js, and System Design. View my projects and blogs.">
+    <meta name="keywords"
+        content="Sajan Karki, Fullstack Developer, Web Developer, React, Node.js, TypeScript, Portfolio, Nepal, Software Engineer">
+    <meta name="author" content="Sajan N. Karki">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sajankarki.com/blogs.html">
-    <meta property="og:title" content="Blogs - Sajan N. Karki">
-    <meta property="og:description" content="Read the latest articles and blogs by Sajan N. Karki.">
+    <meta property="og:url" content="https://sajankarki.com/">
+    <meta property="og:title" content="Sajan N. Karki - Fullstack Developer | Portfolio">
+    <meta property="og:description"
+        content="Enthusiastic Fullstack Developer skilled in TypeScript, React, and Node.js. Check out my projects and experience.">
     <meta property="og:image" content="https://sajankarki.com/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sajankarki.com/blogs.html">
-    <meta property="twitter:title" content="Blogs - Sajan N. Karki">
-    <meta property="twitter:description" content="Read the latest articles and blogs by Sajan N. Karki.">
+    <meta property="twitter:url" content="https://sajankarki.com/">
+    <meta property="twitter:title" content="Sajan N. Karki - Fullstack Developer | Portfolio">
+    <meta property="twitter:description"
+        content="Enthusiastic Fullstack Developer skilled in TypeScript, React, and Node.js. Check out my projects and experience.">
     <meta property="twitter:image" content="https://sajankarki.com/og-image.jpg">
 
     <!-- Fonts -->
@@ -44,12 +50,17 @@
                         sans: ['Outfit', 'sans-serif'],
                     },
                     animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        marquee: 'marquee 25s linear infinite',
+                        marqueeReverse: 'marqueeReverse 25s linear infinite',
                     },
                     keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        marqueeReverse: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(0%)' },
                         }
                     }
                 }
@@ -68,7 +79,7 @@
     <script src="./js/main.js"></script>
 
     <style>
-        /* Custom Scrollbar */
+        /* Custom Scrollbar for sleek look */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -85,30 +96,35 @@
         body {
             font-family: 'Outfit', sans-serif;
         }
+
+        .pause-on-hover:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 
 <body x-data="portfolio" :class="darkMode ? 'bg-primary text-secondary' : 'bg-secondary text-primary'"
-    class="transition-colors duration-300 min-h-screen relative flex flex-col" data-barba="wrapper">
+    class="transition-colors duration-300 min-h-screen relative" data-barba="wrapper">
 
     <!-- Transition Curtain -->
     <div class="transition-curtain fixed inset-0 bg-primary dark:bg-white z-[100] translate-y-full pointer-events-none">
     </div>
 
-    <div data-barba="container" data-barba-namespace="blogs" class="flex flex-col min-h-screen w-full">
+    <div data-barba="container" data-barba-namespace="home" class="min-h-screen flex flex-col">
 
-        <!-- Navbar -->
+        <!-- Navbar / Dark Mode Toggle -->
         <nav class="fixed top-0 w-full p-4 md:p-6 flex justify-between items-center z-50 backdrop-blur-md bg-opacity-80 transition-all duration-300"
             :class="darkMode ? 'bg-primary/80' : 'bg-secondary/80'">
-            <a href="index.html" class="text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">SK.</a>
+            <a href="index.html" class="text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">Sajan
+                Karki</a>
 
             <div class="flex items-center gap-4 md:gap-6">
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center gap-6">
                     <a href="#" @click.prevent="openProjects()"
-                        class="font-medium hover:underline underline-offset-4 decoration-2">Projects</a>
+                        class="font-medium hover:underline underline-offset-4 decoration-2 text-gray-900 dark:text-white">Projects</a>
                     <a href="#" @click.prevent="openBlogs()"
-                        class="font-medium hover:underline underline-offset-4 decoration-2">Blogs</a>
+                        class="font-medium hover:underline underline-offset-4 decoration-2 text-gray-900 dark:text-white">Blogs</a>
                 </div>
 
                 <button @click="toggleTheme()"
@@ -154,17 +170,109 @@
             </div>
         </nav>
 
-        <!-- Main Content -->
-        <main class="flex-grow pt-24 md:pt-32 pb-20 px-6 md:px-20 max-w-7xl mx-auto w-full">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up">Latest <span
-                    class="opacity-60">Articles</span></h1>
-            <p class="text-base md:text-lg opacity-70 mb-12 max-w-2xl animate-fade-in-up"
-                style="animation-delay: 0.1s;">
+        <!-- Hero Section -->
+        <section class="flex-grow flex flex-col justify-center items-center px-6 pt-24 md:pt-32">
+            <div class="text-center animate-fade-in-up w-full max-w-4xl mx-auto space-y-6 md:space-y-12">
+                <p class="font-mono text-black dark:text-white text-xs md:text-sm tracking-widest uppercase opacity-60">
+                    Hi, my name is</p>
+                <h1
+                    class="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter text-gray-900 dark:text-white leading-none">
+                    Sajan N. Karki
+                </h1>
+                <h2 class="text-xl sm:text-3xl md:text-5xl font-bold text-gray-400 max-w-3xl mx-auto leading-tight">
+                    Full Stack Developer from Nepal
+                </h2>
+
+                <p class="max-w-2xl text-gray-600 dark:text-gray-400 text-sm md:text-lg leading-relaxed mx-auto">
+                    An enthusiastic full-stack developer skilled in both backend and frontend technologies. I'm
+                    committed to continuous learning and writing optimized, production-ready code that follows industry
+                    best practices.
+                </p>
+
+                <!-- Hero Socials -->
+                <div class="flex justify-center flex-wrap gap-4 md:gap-6 pt-4">
+                    <template x-for="social in socials">
+                        <a :href="social.link" target="_blank"
+                            class="p-2 rounded-full border border-gray-300 dark:border-gray-700 text-gray-500 hover:text-primary dark:hover:text-white hover:border-primary dark:hover:border-white transition-all duration-300 transform hover:scale-110">
+                            <span class="sr-only" x-text="social.name"></span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                x-html="social.icon"></svg>
+                        </a>
+                    </template>
+                </div>
+
+                <!-- Skills Marquee (Moved here) -->
+                <div class="mt-16 w-full max-w-5xl overflow-hidden relative">
+                    <!-- Row 1 -->
+                    <div class="relative flex overflow-x-hidden group pause-on-hover mask-gradient">
+                        <div class="py-4 animate-marquee whitespace-nowrap flex space-x-12 items-center pause-on-hover">
+                            <template x-for="skill in skills">
+                                <div
+                                    class="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity cursor-default mx-6">
+                                    <i :class="skill.icon" class="text-3xl md:text-5xl"></i>
+                                    <span class="text-lg md:text-2xl font-bold" x-text="skill.name"></span>
+                                </div>
+                            </template>
+                            <!-- Duplicate -->
+                            <template x-for="skill in skills">
+                                <div
+                                    class="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity cursor-default mx-6">
+                                    <i :class="skill.icon" class="text-3xl md:text-5xl"></i>
+                                    <span class="text-lg md:text-2xl font-bold" x-text="skill.name"></span>
+                                </div>
+                            </template>
+                            <template x-for="skill in skills">
+                                <div
+                                    class="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity cursor-default mx-6">
+                                    <i :class="skill.icon" class="text-3xl md:text-5xl"></i>
+                                    <span class="text-lg md:text-2xl font-bold" x-text="skill.name"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Footer -->
+        <footer
+            class="relative py-10 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
+            <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
+
+            <!-- Real-time Kathmandu Clock -->
+            <div
+                class="mt-6 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
+                <div class="text-[10px] font-mono opacity-30 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu,
+                    NP</div>
+                <div class="text-xs font-bold tracking-tight opacity-60 leading-none" x-text="currentTime"></div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Blogs Overlay -->
+    <div
+        class="blogs-overlay fixed inset-0 bg-secondary dark:bg-primary z-[60] translate-y-full overflow-y-auto flex flex-col">
+        <!-- Close Button -->
+        <button @click="closeBlogs()"
+            class="fixed top-6 right-6 p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors z-[70]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <div class="pt-24 pb-20 px-4 md:px-20 max-w-7xl mx-auto flex-grow w-full">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Latest <span class="opacity-60">Articles</span></h1>
+            <p class="text-lg opacity-70 mb-12 max-w-2xl">
                 Thoughts, tutorials, and insights on web development, system design, and more.
             </p>
 
             <!-- Minimal Blogs List -->
-            <div class="space-y-0 mt-20 animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="space-y-0 mt-20">
                 <template x-for="blog in blogs">
                     <a :href="blog.link" target="_blank"
                         class="group flex flex-col md:flex-row md:items-center justify-between py-12 border-b border-gray-100 dark:border-gray-800/50 hover:bg-gray-50/50 dark:hover:bg-white/[0.02] px-4 -mx-4 transition-all duration-500">
@@ -187,9 +295,9 @@
                     </a>
                 </template>
             </div>
-        </main>
+        </div>
 
-        <!-- Footer -->
+        <!-- Overlay Footer -->
         <footer
             class="relative py-10 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
             <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
@@ -252,7 +360,7 @@
 
         <!-- Overlay Footer -->
         <footer
-            class="relative py-6 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
+            class="relative py-10 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
             <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
 
             <div
@@ -263,94 +371,6 @@
             </div>
         </footer>
     </div>
-
-    <!-- Experience Overlay -->
-    <div
-        class="experience-overlay fixed inset-0 bg-white dark:bg-[#111] z-[60] translate-y-full overflow-y-auto duration-300">
-        <!-- Close Button -->
-        <button @click="closeExperience()"
-            class="fixed top-6 right-6 p-2 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-black dark:text-white transition-colors z-[70]">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-
-        <div class="pt-24 pb-20 px-4 md:px-20 max-w-6xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold mb-20 text-center dark:text-white">Where I've <span
-                    class="opacity-60">Worked</span></h1>
-
-            <!-- Timeline -->
-            <div class="relative">
-                <!-- Central Line -->
-                <div
-                    class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gray-200 dark:bg-gray-800">
-                </div>
-
-                <div class="space-y-12">
-                    <template x-for="(job, index) in experience">
-                        <div class="relative flex flex-col md:flex-row items-center justify-between w-full group">
-
-                            <!-- Left Side (Desktop Even / All Mobile) -->
-                            <div class="w-full md:w-5/12 md:pr-10 md:text-right pl-8 md:pl-0 mb-8 md:mb-0"
-                                :class="{ 'md:opacity-100': index % 2 === 0, 'md:invisible md:h-0': index % 2 !== 0 }">
-                                <div
-                                    class="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-6 md:p-8 rounded-xl shadow-lg hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300 group-hover:-translate-y-1">
-                                    <h4 class="text-gray-900 dark:text-white font-bold tracking-widest text-xs md:text-sm uppercase mb-2"
-                                        x-text="job.company"></h4>
-                                    <h3 class="text-xl md:text-2xl font-bold dark:text-white mb-4" x-text="job.role">
-                                    </h3>
-                                    <div
-                                        class="flex items-center gap-2 text-xs md:text-sm font-mono text-gray-500 dark:text-gray-400 mb-6 md:justify-end justify-start">
-                                        <span x-text="job.date"></span>
-                                    </div>
-                                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base text-left md:text-right"
-                                        x-text="job.description"></p>
-                                </div>
-                            </div>
-
-                            <!-- Dot -->
-                            <div
-                                class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-white dark:bg-white border-4 border-gray-200 dark:border-gray-800 shadow-sm z-10 top-0 md:top-12 mt-8 md:mt-0">
-                            </div>
-
-                            <!-- Right Side (Desktop Odd) -->
-                            <div class="hidden md:block w-5/12 md:pl-10 text-left"
-                                :class="{ 'md:opacity-100': index % 2 !== 0, 'md:invisible md:h-0': index % 2 === 0 }">
-                                <div
-                                    class="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-6 md:p-8 rounded-xl shadow-lg hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300 group-hover:-translate-y-1">
-                                    <h4 class="text-gray-900 dark:text-white font-bold tracking-widest text-sm uppercase mb-2"
-                                        x-text="job.company"></h4>
-                                    <h3 class="text-xl md:text-2xl font-bold dark:text-white mb-4" x-text="job.role">
-                                    </h3>
-                                    <div
-                                        class="flex items-center gap-2 text-sm font-mono text-gray-500 dark:text-gray-400 mb-6">
-                                        <span x-text="job.date"></span>
-                                    </div>
-                                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base"
-                                        x-text="job.description"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
-                </div>
-            </div>
-        </div>
-
-        <!-- Overlay Footer -->
-        <footer
-            class="relative py-6 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
-            <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
-
-            <div
-                class="mt-4 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
-                <div class="text-[10px] font-mono opacity-30 uppercase tracking-[0.2em] leading-none mb-1">Kathmandu, NP
-                </div>
-                <div class="text-xs font-bold tracking-tight opacity-60 leading-none" x-text="currentTime"></div>
-            </div>
-        </footer>
-    </div>
-
 </body>
 
 </html>
