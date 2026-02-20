@@ -30,18 +30,18 @@ document.addEventListener('alpine:init', () => {
         },
 
         skills: [
-            { name: 'Typescript', icon: 'devicon-typescript-plain' },
-            { name: 'React', icon: 'devicon-react-original' },
-            { name: 'Node.js', icon: 'devicon-nodejs-plain' },
-            { name: 'Express', icon: 'devicon-express-original' },
-            { name: 'NestJS', icon: 'devicon-nestjs-plain' },
-            { name: 'Docker', icon: 'devicon-docker-plain' },
-            { name: 'Redis', icon: 'devicon-redis-plain' }
+            { name: 'Typescript', icon: 'devicon-typescript-plain', color: '#3178C6' },
+            { name: 'React', icon: 'devicon-react-original', color: '#61DAFB' },
+            { name: 'Node.js', icon: 'devicon-nodejs-plain', color: '#339933' },
+            { name: 'Express', icon: 'devicon-express-original', color: '#000000' },
+            { name: 'NestJS', icon: 'devicon-nestjs-plain', color: '#E0234E' },
+            { name: 'Docker', icon: 'devicon-docker-plain', color: '#2496ED' },
+            { name: 'Redis', icon: 'devicon-redis-plain', color: '#DC382D' }
         ],
 
         otherSkills: [
-            { name: 'System Design', icon: 'devicon-unrealengine-original' },
-            { name: 'Scalable System', icon: 'devicon-googlecloud-plain' }
+            { name: 'System Design', icon: 'devicon-unrealengine-original', color: '#313131' },
+            { name: 'Scalable System', icon: 'devicon-googlecloud-plain', color: '#4285F4' }
         ],
 
         blogs: [
