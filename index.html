@@ -4,36 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sajan N. Karki - Fullstack Developer | Portfolio</title>
+    <title>Sajan N. Karki | Fullstack Developer from Bhairahawa, Nepal</title>
     <meta name="description"
-        content="Portfolio of Sajan N. Karki, an enthusiastic Fullstack Developer skilled in TypeScript, React, Node.js, and System Design. View my projects and blogs.">
+        content="Sajan N. Karki is a professional Fullstack Developer from Bhairahawa, Nepal. Specializing in TypeScript, React, Node.js, and scalable systems. View my portfolio and latest tech blogs.">
     <meta name="keywords"
-        content="Sajan Karki, Fullstack Developer, Web Developer, React, Node.js, TypeScript, Portfolio, Nepal, Software Engineer">
+        content="Sajan Karki, Fullstack Developer Bhairahawa, Web Developer Nepal, React Developer Bhairahawa, Node.js Engineer Nepal, Sajan N. Karki Portfolio, Bhairahawa Software Engineer">
     <meta name="author" content="Sajan N. Karki">
+    <link rel="canonical" href="https://sajankarki.com/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sajankarki.com/">
-    <meta property="og:title" content="Sajan N. Karki - Fullstack Developer | Portfolio">
+    <meta property="og:title" content="Sajan N. Karki | Fullstack Developer from Bhairahawa, Nepal">
     <meta property="og:description"
-        content="Enthusiastic Fullstack Developer skilled in TypeScript, React, and Node.js. Check out my projects and experience.">
+        content="Professional Fullstack Developer from Bhairahawa, Nepal. Expertise in TypeScript, React, and Node.js.">
     <meta property="og:image" content="https://sajankarki.com/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sajankarki.com/">
-    <meta property="twitter:title" content="Sajan N. Karki - Fullstack Developer | Portfolio">
+    <meta property="twitter:title" content="Sajan N. Karki | Fullstack Developer from Bhairahawa, Nepal">
     <meta property="twitter:description"
-        content="Enthusiastic Fullstack Developer skilled in TypeScript, React, and Node.js. Check out my projects and experience.">
+        content="Professional Fullstack Developer from Bhairahawa, Nepal. Expertise in TypeScript, React, and Node.js.">
     <meta property="twitter:image" content="https://sajankarki.com/og-image.jpg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+
+    <!-- Preload LCP Image -->
+    <link rel="preload" as="image" href="./images/sajan.jpg" fetchpriority="high">
 
     <!-- Devicon -->
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        media="print" onload="this.media='all'">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sajan N. Karki",
+      "url": "https://sajankarki.com/",
+      "jobTitle": "Fullstack Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bhairahawa",
+        "addressRegion": "Lumbini",
+        "addressCountry": "Nepal"
+      },
+      "sameAs": [
+        "https://github.com/sajjankarki18",
+        "https://www.linkedin.com/in/sajan-n-karki-67a03931a/"
+      ],
+      "description": "Fullstack Developer from Bhairahawa, Nepal specializing in React, Node.js, and TypeScript."
+    }
+    </script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -108,96 +138,130 @@
             mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
         }
+
+        /* Focus Styles for Accessibility */
+        *:focus-visible {
+            outline: 2px solid #1DBA8B !important;
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: #1DBA8B;
+            color: #0F0F0F;
+            padding: 8px 16px;
+            z-index: 1000;
+            transition: top 0.3s;
+            font-weight: bold;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
 </head>
 
 <body x-data="portfolio" :class="darkMode ? 'bg-primary text-light' : 'bg-light text-primary'"
-    class="transition-colors duration-300 min-h-screen relative font-sans" data-barba="wrapper">
+    class="transition-colors duration-300 min-h-screen relative font-sans" data-barba="wrapper"
+    @keydown.escape="closeBlogs(); closeProjects(); closeExperience()">
+
+    <a href="#main-content" class="skip-link">Skip to Content</a>
 
     <!-- Transition Curtain -->
     <div class="transition-curtain fixed inset-0 bg-primary dark:bg-white z-[100] translate-y-full pointer-events-none">
     </div>
 
     <div data-barba="container" data-barba-namespace="home" class="min-h-screen flex flex-col">
+        <header>
+            <!-- Navbar / Dark Mode Toggle -->
+            <nav class="fixed top-0 w-full p-4 md:p-6 flex justify-between items-center z-50 backdrop-blur-md transition-all duration-300 border-b"
+                :class="darkMode ? 'bg-primary/95 border-secondary/10' : 'bg-light/95 border-primary/5'">
+                <a href="index.html"
+                    class="text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">Sajan
+                    Karki</a>
 
-        <!-- Navbar / Dark Mode Toggle -->
-        <nav class="fixed top-0 w-full p-4 md:p-6 flex justify-between items-center z-50 backdrop-blur-md transition-all duration-300 border-b"
-            :class="darkMode ? 'bg-primary/95 border-secondary/10' : 'bg-light/95 border-primary/5'">
-            <a href="index.html" class="text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">Sajan
-                Karki</a>
+                <div class="flex items-center gap-4 md:gap-6">
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center gap-6">
+                        <a href="#" @click.prevent="openProjects()"
+                            class="font-medium hover:text-secondary transition-colors">Projects</a>
+                        <a href="#" @click.prevent="openBlogs()"
+                            class="font-medium hover:text-secondary transition-colors">Blogs</a>
+                    </div>
 
-            <div class="flex items-center gap-4 md:gap-6">
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="#" @click.prevent="openProjects()"
-                        class="font-medium hover:text-secondary transition-colors">Projects</a>
-                    <a href="#" @click.prevent="openBlogs()"
-                        class="font-medium hover:text-secondary transition-colors">Blogs</a>
+
+
+                    <!-- Mobile Menu Button -->
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" aria-label="Toggle mobile menu"
+                        class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
 
-
-
-                <!-- Mobile Menu Button -->
-                <button @click="mobileMenuOpen = !mobileMenuOpen"
-                    class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                        <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Mobile Menu Overlay -->
-            <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 translate-y-[-10px]"
-                x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200"
-                x-transition:leave-start="opacity-100 translate-y-0"
-                x-transition:leave-end="opacity-0 translate-y-[-10px]"
-                class="absolute top-full left-0 w-full bg-[#F8F9FA] dark:bg-[#1D2625] border-b border-secondary/20 dark:border-secondary/10 p-8 flex flex-col gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.2)] md:hidden z-[100]">
-                <a href="#" @click.prevent="openProjects(); mobileMenuOpen = false"
-                    class="text-lg font-medium hover:text-gray-500 transition-colors">Projects</a>
-                <a href="#" @click.prevent="openBlogs(); mobileMenuOpen = false"
-                    class="text-lg font-medium hover:text-gray-500 transition-colors">Blogs</a>
-            </div>
-        </nav>
+                <!-- Mobile Menu Overlay -->
+                <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-[-10px]"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 translate-y-[-10px]"
+                    class="absolute top-full left-0 w-full bg-[#F8F9FA] dark:bg-[#1D2625] border-b border-secondary/20 dark:border-secondary/10 p-8 flex flex-col gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.2)] md:hidden z-[100]">
+                    <a href="#" @click.prevent="openProjects(); mobileMenuOpen = false"
+                        class="text-lg font-medium hover:text-gray-500 transition-colors">Projects</a>
+                    <a href="#" @click.prevent="openBlogs(); mobileMenuOpen = false"
+                        class="text-lg font-medium hover:text-gray-500 transition-colors">Blogs</a>
+                </div>
+            </nav>
+        </header>
 
         <!-- Hero Section -->
-        <section class="flex-grow flex flex-col justify-center px-6 pt-24 md:pt-32">
+        <main id="main-content"
+            class="relative flex-grow flex flex-col justify-center px-6 pt-24 md:pt-40 overflow-hidden">
+            <!-- Large Background Text Behind Image -->
+            <div aria-hidden="true"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center pointer-events-none select-none z-0">
+                <h2
+                    class="text-[25vw] font-black tracking-tighter text-primary/[0.03] dark:text-white/[0.03] uppercase whitespace-nowrap">
+                    Sajan
+                </h2>
+            </div>
             <div class="max-w-6xl mx-auto w-full">
                 <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
                     <!-- Left: Text Content -->
                     <div
-                        class="flex-1 text-center md:text-left animate-fade-in-up space-y-6 md:space-y-8 order-2 md:order-1">
+                        class="flex-1 text-center md:text-left animate-fade-in-up space-y-4 md:space-y-6 order-2 md:order-1 relative z-10">
                         <p
-                            class="font-mono text-black dark:text-white text-xs md:text-sm tracking-widest uppercase opacity-60">
+                            class="font-mono text-black dark:text-white text-xs md:text-sm tracking-widest uppercase opacity-70">
                             Hi, my name is</p>
                         <h1
-                            class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-gray-900 dark:text-white leading-none">
-                            Sajan N. Karki
+                            class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-primary dark:text-white leading-[0.85] mb-2">
+                            Sajan N.<br class="hidden md:block"> Karki
                         </h1>
-                        <h2 class="text-xl sm:text-2xl md:text-4xl font-bold text-gray-400 leading-tight">
-                            Full Stack Developer from Nepal
+                        <h2 class="text-lg sm:text-xl md:text-3xl font-bold text-secondary leading-tight">
+                            Full Stack Developer from Bhairahawa, Nepal
                         </h2>
 
-                        <p
-                            class="max-w-xl text-gray-600 dark:text-gray-400 text-sm md:text-lg leading-relaxed mx-auto md:mx-0">
-                            An enthusiastic full-stack developer skilled in both backend and frontend technologies. I'm
-                            committed to continuous learning and writing optimized, production-ready code that follows
-                            industry
-                            best practices.
+                        <p class="max-w-md text-muted text-sm md:text-base leading-relaxed mx-auto md:mx-0 opacity-90">
+                            An enthusiastic full-stack developer committed to continuous learning and writing optimized,
+                            production-ready code following industry best practices.
                         </p>
 
                         <!-- Hero Socials -->
-                        <div class="flex justify-center md:justify-start flex-wrap gap-4 md:gap-6 pt-4">
+                        <div class="flex justify-center md:justify-start flex-wrap gap-4 pt-4">
                             <template x-for="social in socials">
-                                <a :href="social.link" target="_blank"
+                                <a :href="social.link" target="_blank" rel="noopener noreferrer"
                                     class="p-2 rounded-full border border-primary/10 text-muted hover:text-secondary hover:border-secondary transition-all duration-300 transform hover:scale-110">
                                     <span class="sr-only" x-text="social.name"></span>
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        x-html="social.icon"></svg>
+                                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" x-html="social.icon"></svg>
                                 </a>
                             </template>
                         </div>
@@ -213,8 +277,9 @@
 
                             <!-- Main Image -->
                             <div
-                                class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 group-hover:scale-[1.02] border border-gray-200 dark:border-gray-800 bg-surface">
-                                <img src="./images/sajan.jpg" alt="Sajan N. Karki Mirror Selfie"
+                                class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 group-hover:scale-[1.02] border border-gray-200 dark:border-gray-800 bg-[#e5e7eb] dark:bg-[#1f2937]">
+                                <img src="./images/sajan.jpg" alt="Sajan N. Karki Mirror Selfie" fetchpriority="high"
+                                    loading="eager"
                                     class="w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-100">
                                 <!-- Overlay for depth -->
                                 <div
@@ -228,27 +293,30 @@
                 </div>
 
                 <!-- Skills Marquee -->
-                <div class="mt-12 w-full">
-                    <div class="max-w-6xl mx-auto w-full px-6 md:px-0 mb-6">
-                        <p class="text-xs font-mono uppercase tracking-[0.2em] opacity-40 text-center md:text-left">
-                            Skills & Tools</p>
+                <div class="mt-8 w-full">
+                    <div class="max-w-6xl mx-auto w-full px-6 mb-8">
+                        <div class="flex items-center gap-6">
+                            <p class="text-xs font-mono uppercase tracking-[0.3em] opacity-80 whitespace-nowrap">
+                                Skills & Tools</p>
+                            <div class="h-[1px] flex-grow bg-primary/10 dark:bg-white/10"></div>
+                        </div>
                     </div>
-                    <div class="w-full overflow-hidden relative">
+                    <div class="w-full overflow-hidden relative min-h-[100px]">
                         <div class="relative flex overflow-x-hidden group pause-on-hover mask-gradient">
                             <div
                                 class="py-4 animate-marquee whitespace-nowrap flex gap-12 md:gap-16 items-center pause-on-hover px-6">
                                 <template x-for="skill in skills">
-                                    <div class="flex items-center gap-3 opacity-40 hover:opacity-100 transition-all cursor-default shrink-0"
+                                    <div class="flex items-center gap-3 opacity-60 hover:opacity-100 transition-all cursor-default shrink-0"
                                         @mouseenter="$el.style.color = skill.color" @mouseleave="$el.style.color = ''">
-                                        <i :class="skill.icon" class="text-3xl md:text-5xl"></i>
+                                        <i :class="skill.icon" class="text-3xl md:text-5xl" aria-hidden="true"></i>
                                         <span class="text-lg md:text-2xl font-bold" x-text="skill.name"></span>
                                     </div>
                                 </template>
                                 <!-- Duplicate for loop -->
                                 <template x-for="skill in skills">
-                                    <div class="flex items-center gap-3 opacity-40 hover:opacity-100 transition-all cursor-default shrink-0"
+                                    <div class="flex items-center gap-3 opacity-60 hover:opacity-100 transition-all cursor-default shrink-0"
                                         @mouseenter="$el.style.color = skill.color" @mouseleave="$el.style.color = ''">
-                                        <i :class="skill.icon" class="text-3xl md:text-5xl"></i>
+                                        <i :class="skill.icon" class="text-3xl md:text-5xl" aria-hidden="true"></i>
                                         <span class="text-lg md:text-2xl font-bold" x-text="skill.name"></span>
                                     </div>
                                 </template>
@@ -256,19 +324,20 @@
                         </div>
                     </div>
                 </div>
-        </section>
+            </div>
+        </main>
 
 
 
         <!-- Footer -->
         <footer
             class="relative py-10 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
-            <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
+            <p class="text-sm opacity-80">&copy; 2026 Sajan Karki. All rights reserved.</p>
 
             <!-- Real-time Kathmandu Clock -->
             <div
                 class="mt-6 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
-                <div class="text-xs font-mono opacity-40 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
+                <div class="text-xs font-mono opacity-80 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
                 </div>
                 <div class="text-sm md:text-base font-bold tracking-tight opacity-70 leading-none" x-text="currentTime">
                 </div>
@@ -277,12 +346,13 @@
     </div>
 
     <!-- Blogs Overlay -->
-    <div class="blogs-overlay fixed inset-0 bg-light z-[60] translate-y-full overflow-y-auto flex flex-col">
+    <div class="blogs-overlay fixed inset-0 bg-light z-[60] translate-y-full overflow-y-auto flex flex-col"
+        role="dialog" aria-modal="true" aria-labelledby="blogs-title">
         <!-- Branding & Close -->
         <div class="fixed top-0 w-full p-6 flex justify-between items-center z-[70] pointer-events-none">
             <div class="text-xl font-bold tracking-tighter pointer-events-auto">Sajan Karki</div>
-            <button @click="closeBlogs()"
-                class="p-2 rounded-full bg-primary/5 hover:bg-primary/10 transition-colors pointer-events-auto">
+            <button @click="closeBlogs()" aria-label="Close blogs overlay"
+                class="close-btn p-2 rounded-full bg-primary/5 hover:bg-primary/10 transition-colors pointer-events-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -291,7 +361,8 @@
         </div>
 
         <div class="pt-24 pb-20 px-4 md:px-20 max-w-7xl mx-auto flex-grow w-full">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Latest <span class="opacity-60">Articles</span></h1>
+            <h1 id="blogs-title" class="text-4xl md:text-6xl font-bold mb-4">Latest <span
+                    class="opacity-60">Articles</span></h1>
             <p class="text-lg opacity-70 mb-12 max-w-2xl">
                 Thoughts, tutorials, and insights on web development, system design, and more.
             </p>
@@ -299,7 +370,7 @@
             <!-- Medium-style Blogs List -->
             <div class="mt-20 border-t border-primary/10">
                 <template x-for="blog in blogs">
-                    <a :href="blog.link" target="_blank"
+                    <a :href="blog.link" target="_blank" rel="noopener noreferrer"
                         class="group block py-12 border-b border-primary/10 hover:bg-primary/[0.02] px-4 -mx-4 transition-all duration-300">
                         <div
                             class="flex flex-col-reverse md:flex-row justify-start items-start md:items-center gap-6 md:gap-8">
@@ -326,7 +397,7 @@
                             </div>
                             <div
                                 class="w-full md:w-48 lg:w-56 shrink-0 aspect-[4/3] md:aspect-square overflow-hidden rounded-2xl border border-secondary/10">
-                                <img :src="blog.image" alt="Blog Image"
+                                <img :src="blog.image" :alt="blog.title"
                                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale-[20%] group-hover:grayscale-0">
                             </div>
                         </div>
@@ -351,12 +422,13 @@
     </div>
 
     <!-- Projects Overlay -->
-    <div class="projects-overlay fixed inset-0 bg-light z-[60] translate-y-full overflow-y-auto flex flex-col">
+    <div class="projects-overlay fixed inset-0 bg-light z-[60] translate-y-full overflow-y-auto flex flex-col"
+        role="dialog" aria-modal="true" aria-labelledby="projects-title">
         <!-- Branding & Close -->
         <div class="fixed top-0 w-full p-6 flex justify-between items-center z-[70] pointer-events-none">
             <div class="text-xl font-bold tracking-tighter pointer-events-auto">Sajan Karki</div>
-            <button @click="closeProjects()"
-                class="p-2 rounded-full bg-primary/5 hover:bg-primary/10 transition-colors pointer-events-auto">
+            <button @click="closeProjects()" aria-label="Close projects overlay"
+                class="close-btn p-2 rounded-full bg-primary/5 hover:bg-primary/10 transition-colors pointer-events-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -365,7 +437,8 @@
         </div>
 
         <div class="pt-24 pb-20 px-4 md:px-20 max-w-7xl mx-auto flex-grow w-full">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">My <span class="opacity-60">Projects</span></h1>
+            <h1 id="projects-title" class="text-4xl md:text-6xl font-bold mb-4">My <span
+                    class="opacity-60">Projects</span></h1>
             <p class="text-lg opacity-70 mb-12 max-w-2xl">
                 A showcase of my recent work, side projects, and experiments.
             </p>
@@ -376,7 +449,7 @@
                     <a :href="project.link"
                         class="block rounded-3xl overflow-hidden border border-secondary/20 dark:border-secondary/10 hover:border-secondary/50 dark:hover:border-secondary/30 transition-all duration-300 group bg-white/40 dark:bg-surface hover:-translate-y-2 hover:shadow-2xl flex flex-col h-full">
                         <div class="h-56 overflow-hidden relative shrink-0">
-                            <img :src="project.image" alt="Project Image"
+                            <img :src="project.image" :alt="project.title"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         </div>
                         <div class="p-6 flex flex-col flex-grow">

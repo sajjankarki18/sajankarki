@@ -83,11 +83,17 @@ document.addEventListener('alpine:init', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         },
 
+        lastFocusedElement: null,
+
         openBlogs() {
+            this.lastFocusedElement = document.activeElement;
             gsap.to('.blogs-overlay', {
                 y: '0%',
                 duration: 0.8,
-                ease: 'power3.out'
+                ease: 'power3.out',
+                onComplete: () => {
+                    document.querySelector('.blogs-overlay .close-btn')?.focus();
+                }
             });
             document.body.style.overflow = 'hidden'; // Prevent scrolling background
         },
@@ -96,7 +102,10 @@ document.addEventListener('alpine:init', () => {
             gsap.to('.blogs-overlay', {
                 y: '100%',
                 duration: 0.8,
-                ease: 'power3.inOut'
+                ease: 'power3.inOut',
+                onComplete: () => {
+                    this.lastFocusedElement?.focus();
+                }
             });
             document.body.style.overflow = ''; // Restore scrolling
         },
@@ -123,10 +132,14 @@ document.addEventListener('alpine:init', () => {
         ],
 
         openProjects() {
+            this.lastFocusedElement = document.activeElement;
             gsap.to('.projects-overlay', {
                 y: '0%',
                 duration: 0.8,
-                ease: 'power3.out'
+                ease: 'power3.out',
+                onComplete: () => {
+                    document.querySelector('.projects-overlay .close-btn')?.focus();
+                }
             });
             document.body.style.overflow = 'hidden'; // Prevent scrolling background
         },
@@ -135,16 +148,23 @@ document.addEventListener('alpine:init', () => {
             gsap.to('.projects-overlay', {
                 y: '100%',
                 duration: 0.8,
-                ease: 'power3.inOut'
+                ease: 'power3.inOut',
+                onComplete: () => {
+                    this.lastFocusedElement?.focus();
+                }
             });
             document.body.style.overflow = ''; // Restore scrolling
         },
 
         openExperience() {
+            this.lastFocusedElement = document.activeElement;
             gsap.to('.experience-overlay', {
                 y: '0%',
                 duration: 0.8,
-                ease: 'power3.out'
+                ease: 'power3.out',
+                onComplete: () => {
+                    document.querySelector('.experience-overlay .close-btn')?.focus();
+                }
             });
             document.body.style.overflow = 'hidden'; // Prevent scrolling background
         },
@@ -153,7 +173,10 @@ document.addEventListener('alpine:init', () => {
             gsap.to('.experience-overlay', {
                 y: '100%',
                 duration: 0.8,
-                ease: 'power3.inOut'
+                ease: 'power3.inOut',
+                onComplete: () => {
+                    this.lastFocusedElement?.focus();
+                }
             });
             document.body.style.overflow = ''; // Restore scrolling
         }
