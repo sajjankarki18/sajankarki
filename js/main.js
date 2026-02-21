@@ -3,6 +3,9 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('portfolio', () => ({
         darkMode: false,
         mobileMenuOpen: false,
+        blogsOpen: false,
+        projectsOpen: false,
+        experienceOpen: false,
         currentTime: '',
         heroSwapped: false,
         experience: [
