@@ -4,6 +4,21 @@ document.addEventListener('alpine:init', () => {
         darkMode: false,
         mobileMenuOpen: false,
         currentTime: '',
+        heroSwapped: false,
+        experience: [
+            {
+                company: 'Wrappers Wrap',
+                role: 'Full Stack Developer',
+                date: '2023 - Present',
+                description: 'Developing high-performance eCommerce solutions and robust admin management portals using React, Node.js and TypeScript.'
+            },
+            {
+                company: 'Letsdo',
+                role: 'Backend Engineer',
+                date: '2022 - 2023',
+                description: 'Architecting scalable multi-tenant architectures and optimizing database performance for high-traffic applications.'
+            }
+        ],
 
         init() {
             // Dark mode disabled
@@ -83,31 +98,21 @@ document.addEventListener('alpine:init', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         },
 
+        blogsOpen: false,
+        projectsOpen: false,
+        experienceOpen: false,
         lastFocusedElement: null,
 
         openBlogs() {
             this.lastFocusedElement = document.activeElement;
-            gsap.to('.blogs-overlay', {
-                y: '0%',
-                duration: 0.8,
-                ease: 'power3.out',
-                onComplete: () => {
-                    document.querySelector('.blogs-overlay .close-btn')?.focus();
-                }
-            });
-            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            this.blogsOpen = true;
+            document.body.style.overflow = 'hidden';
         },
 
         closeBlogs() {
-            gsap.to('.blogs-overlay', {
-                y: '100%',
-                duration: 0.8,
-                ease: 'power3.inOut',
-                onComplete: () => {
-                    this.lastFocusedElement?.focus();
-                }
-            });
-            document.body.style.overflow = ''; // Restore scrolling
+            this.blogsOpen = false;
+            document.body.style.overflow = '';
+            this.lastFocusedElement?.focus();
         },
 
         projects: [
@@ -133,109 +138,36 @@ document.addEventListener('alpine:init', () => {
 
         openProjects() {
             this.lastFocusedElement = document.activeElement;
-            gsap.to('.projects-overlay', {
-                y: '0%',
-                duration: 0.8,
-                ease: 'power3.out',
-                onComplete: () => {
-                    document.querySelector('.projects-overlay .close-btn')?.focus();
-                }
-            });
-            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            this.projectsOpen = true;
+            document.body.style.overflow = 'hidden';
         },
 
         closeProjects() {
-            gsap.to('.projects-overlay', {
-                y: '100%',
-                duration: 0.8,
-                ease: 'power3.inOut',
-                onComplete: () => {
-                    this.lastFocusedElement?.focus();
-                }
-            });
-            document.body.style.overflow = ''; // Restore scrolling
+            this.projectsOpen = false;
+            document.body.style.overflow = '';
+            this.lastFocusedElement?.focus();
         },
 
         openExperience() {
             this.lastFocusedElement = document.activeElement;
-            gsap.to('.experience-overlay', {
-                y: '0%',
-                duration: 0.8,
-                ease: 'power3.out',
-                onComplete: () => {
-                    document.querySelector('.experience-overlay .close-btn')?.focus();
-                }
-            });
-            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+            this.experienceOpen = true;
+            document.body.style.overflow = 'hidden';
         },
 
         closeExperience() {
-            gsap.to('.experience-overlay', {
-                y: '100%',
-                duration: 0.8,
-                ease: 'power3.inOut',
-                onComplete: () => {
-                    this.lastFocusedElement?.focus();
-                }
-            });
-            document.body.style.overflow = ''; // Restore scrolling
+            this.experienceOpen = false;
+            document.body.style.overflow = '';
+            this.lastFocusedElement?.focus();
+        },
+
+        // Helper for simple scrolling
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }));
 });
 
-// Barba.js & GSAP Transitions
+// Simple clock initialization
 document.addEventListener('DOMContentLoaded', () => {
-    // Only init if Barba is available
-    if (typeof barba !== 'undefined') {
-        barba.init({
-            sync: true,
-            transitions: [{
-                async leave(data) {
-                    const done = this.async();
-
-                    // Animate transition curtain UP
-                    await gsap.to('.transition-curtain', {
-                        y: '0%',
-                        duration: 0.6,
-                        ease: 'power3.inOut'
-                    });
-
-                    done();
-                },
-                async enter(data) {
-                    // Scroll to top immediately in the new container context
-                    window.scrollTo(0, 0);
-
-                    // Animate curtain UP (reveal)
-                    // It's currently at 0% (covering screen). We move it to -100% (up off screen)
-                    gsap.fromTo('.transition-curtain',
-                        { y: '0%' },
-                        {
-                            y: '-100%',
-                            duration: 0.6,
-                            ease: 'power3.inOut',
-                            onComplete: () => {
-                                // Reset curtain to bottom for next transition
-                                gsap.set('.transition-curtain', { y: '100%' });
-                            }
-                        }
-                    );
-
-                    // Simple Entrance for Content
-                    gsap.from(data.next.container, {
-                        y: 50,
-                        opacity: 0,
-                        duration: 0.6,
-                        ease: 'power3.out',
-                        delay: 0.2
-                    });
-                },
-                after(data) {
-                    // Re-initialize Alpine.js on the new container
-                    // Alpine v3 automatically observes the DOM, so standard x-data works.
-                    // However, we might need a slight delay or force update if complex.
-                }
-            }]
-        });
-    }
+    // Standard initialization if needed
 });
