@@ -384,12 +384,13 @@
         class="blogs-overlay fixed inset-0 bg-light z-[60] overflow-y-auto flex flex-col" role="dialog"
         aria-modal="true" aria-labelledby="blogs-title">
         <!-- Branding & Close -->
-        <div class="fixed top-0 w-full p-6 flex justify-between items-center z-[70] pointer-events-none">
-            <div class="text-xl font-bold tracking-tighter pointer-events-auto">Sajan Karki</div>
+        <div
+            class="fixed top-0 w-full p-4 md:p-6 flex justify-between items-center z-[70] backdrop-blur-md bg-light/80 dark:bg-primary/80 border-b border-primary/5 dark:border-white/5 transition-all duration-300">
+            <div class="text-xl font-bold tracking-tighter text-primary dark:text-white">Sajan Karki</div>
             <button @click="closeBlogs()" aria-label="Close blogs overlay"
-                class="close-btn p-2 rounded-full bg-primary/5 hover:bg-primary/10 transition-colors pointer-events-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
+                class="close-btn p-2 rounded-full bg-primary/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary dark:text-white" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
@@ -464,12 +465,13 @@
         class="projects-overlay fixed inset-0 bg-light z-[60] overflow-y-auto flex flex-col" role="dialog"
         aria-modal="true" aria-labelledby="projects-title">
         <!-- Branding & Close -->
-        <div class="fixed top-0 w-full p-6 flex justify-between items-center z-[70] pointer-events-none">
-            <div class="text-xl font-bold tracking-tighter pointer-events-auto">Sajan Karki</div>
+        <div
+            class="fixed top-0 w-full p-4 md:p-6 flex justify-between items-center z-[70] backdrop-blur-md bg-light/80 dark:bg-primary/80 border-b border-primary/5 dark:border-white/5 transition-all duration-300">
+            <div class="text-xl font-bold tracking-tighter text-primary dark:text-white">Sajan Karki</div>
             <button @click="closeProjects()" aria-label="Close projects overlay"
-                class="close-btn p-2 rounded-full bg-primary/5 hover:bg-primary/10 transition-colors pointer-events-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
+                class="close-btn p-2 rounded-full bg-primary/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary dark:text-white" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
