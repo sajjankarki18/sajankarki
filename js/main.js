@@ -10,16 +10,19 @@ document.addEventListener('alpine:init', () => {
         heroSwapped: false,
         experience: [
             {
-                company: 'Wrappers Wrap',
-                role: 'Full Stack Developer',
-                date: '2023 - Present',
-                description: 'Developing high-performance eCommerce solutions and robust admin management portals using React, Node.js and TypeScript.'
-            },
-            {
-                company: 'Letsdo',
-                role: 'Backend Engineer',
-                date: '2022 - 2023',
-                description: 'Architecting scalable multi-tenant architectures and optimizing database performance for high-traffic applications.'
+                company: 'EwanByte',
+                roles: [
+                    {
+                        title: 'Full Stack Developer',
+                        date: 'January 2026 — Present',
+                        description: 'Building scalable web applications using modern technologies. Developing full-stack features with focus on performance and user experience.'
+                    },
+                    {
+                        title: 'Full Stack Intern',
+                        date: 'November 2024 — January 2025',
+                        description: 'Started career as an intern, learned industry best practices and contributed to multiple projects while developing core skills.'
+                    }
+                ]
             }
         ],
 
