@@ -28,13 +28,34 @@
         content="Professional Fullstack Developer from Bhairahawa, Nepal. Expertise in TypeScript, React, and Node.js.">
     <meta property="twitter:image" content="https://sajankarki.com/og-image.jpg">
 
-    <!-- Fonts -->
+    <!-- Preconnect to CDNs for speed -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+    <!-- Fonts -->
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
+
+    <!-- CSS for critical rendering -->
+    <style>
+        body {
+            background-color: #FAFAFA;
+        }
+
+        .dark body {
+            background-color: #0F0F0F;
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
 
     <!-- Preload LCP Image -->
     <link rel="preload" as="image" href="./images/sajan.jpg" fetchpriority="high">
@@ -65,7 +86,7 @@
     }
     </script>
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (Keep in head to avoid FOUC, but optimize config) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -83,8 +104,8 @@
                         sans: ['Outfit', 'sans-serif'],
                     },
                     animation: {
-                        marquee: 'marquee 25s linear infinite',
-                        marqueeReverse: 'marqueeReverse 25s linear infinite',
+                        marquee: 'marquee 40s linear infinite',
+                        marqueeReverse: 'marqueeReverse 40s linear infinite',
                     },
                     keyframes: {
                         marquee: {
@@ -100,16 +121,7 @@
             }
         }
     </script>
-
-    <!-- GSAP & Barba.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://unpkg.com/@barba/core"></script>
-
-    <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- Custom JS -->
-    <script src="./js/main.js"></script>
+    <!-- Non-critical scripts moved to bottom -->
 
     <style>
         /* Custom Scrollbar for sleek look */
@@ -279,7 +291,7 @@
                             <div
                                 class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 group-hover:scale-[1.02] border border-gray-200 dark:border-gray-800 bg-[#e5e7eb] dark:bg-[#1f2937]">
                                 <img src="./images/sajan.jpg" alt="Sajan N. Karki Mirror Selfie" fetchpriority="high"
-                                    loading="eager"
+                                    loading="eager" decoding="async"
                                     class="w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-100">
                                 <!-- Overlay for depth -->
                                 <div
@@ -396,8 +408,8 @@
                                 </div>
                             </div>
                             <div
-                                class="w-full md:w-48 lg:w-56 shrink-0 aspect-[4/3] md:aspect-square overflow-hidden rounded-2xl border border-secondary/10">
-                                <img :src="blog.image" :alt="blog.title"
+                                class="w-full md:w-48 lg:w-56 shrink-0 aspect-[4/3] md:aspect-square overflow-hidden rounded-2xl border border-secondary/10 bg-gray-100 dark:bg-gray-800">
+                                <img :src="blog.image" :alt="blog.title" decoding="async"
                                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale-[20%] group-hover:grayscale-0">
                             </div>
                         </div>
@@ -448,8 +460,8 @@
                 <template x-for="project in projects">
                     <a :href="project.link"
                         class="block rounded-3xl overflow-hidden border border-secondary/20 dark:border-secondary/10 hover:border-secondary/50 dark:hover:border-secondary/30 transition-all duration-300 group bg-white/40 dark:bg-surface hover:-translate-y-2 hover:shadow-2xl flex flex-col h-full">
-                        <div class="h-56 overflow-hidden relative shrink-0">
-                            <img :src="project.image" :alt="project.title"
+                        <div class="h-56 overflow-hidden relative shrink-0 bg-gray-100 dark:bg-gray-800">
+                            <img :src="project.image" :alt="project.title" decoding="async"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -486,6 +498,11 @@
             </div>
         </footer>
     </div>
+    <!-- Scripts loaded at the end for performance -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/@barba/core" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="./js/main.js" defer></script>
 </body>
 
 </html>
