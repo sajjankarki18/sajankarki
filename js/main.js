@@ -151,6 +151,51 @@ document.addEventListener('alpine:init', () => {
             this.lastFocusedElement?.focus();
         },
 
+        swapHero() {
+            if (window.innerWidth < 768) {
+                this.heroSwapped = !this.heroSwapped;
+                return;
+            }
+
+            const text = this.$refs.heroText;
+            const image = this.$refs.heroImage;
+
+            // Capture initial positions
+            const textRect = text.getBoundingClientRect();
+            const imageRect = image.getBoundingClientRect();
+
+            this.heroSwapped = !this.heroSwapped;
+
+            // Wait for Alpine to update the DOM (flex-row-reverse and order changes)
+            this.$nextTick(() => {
+                // Capture new positions
+                const newTextRect = text.getBoundingClientRect();
+                const newImageRect = image.getBoundingClientRect();
+
+                // Calculate the delta
+                const textDeltaX = textRect.left - newTextRect.left;
+                const imageDeltaX = imageRect.left - newImageRect.left;
+
+                // Immediately set the inversion (remove the jump)
+                gsap.set(text, { x: textDeltaX });
+                gsap.set(image, { x: imageDeltaX });
+
+                // Animate to 0
+                gsap.to(text, {
+                    x: 0,
+                    duration: 0.7,
+                    ease: "power3.inOut",
+                    clearProps: "x" // Clean up transform after animation
+                });
+                gsap.to(image, {
+                    x: 0,
+                    duration: 0.7,
+                    ease: "power3.inOut",
+                    clearProps: "x"
+                });
+            });
+        },
+
         openExperience() {
             this.lastFocusedElement = document.activeElement;
             this.experienceOpen = true;
