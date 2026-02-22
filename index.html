@@ -10,23 +10,23 @@
     <meta name="keywords"
         content="Fullstack Developer Bhairahawa, Backend Developer Bhairahawa, Website Developer Bhairahawa, Web Developer Nepal, Sajan Karki Bhairahawa, Bhairahawa Software Engineer, React Developer Nepal">
     <meta name="author" content="Sajan N. Karki">
-    <link rel="canonical" href="https://sajankarki.com/">
+    <link rel="canonical" href="https://sajankarki.com.np/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sajankarki.com/">
+    <meta property="og:url" content="https://sajankarki.com.np/">
     <meta property="og:title" content="Sajan N. Karki | Fullstack Developer from Bhairahawa, Nepal">
     <meta property="og:description"
         content="Professional Fullstack Developer from Bhairahawa, Nepal. Expertise in TypeScript, React, and Node.js.">
-    <meta property="og:image" content="https://sajankarki.com/og-image.jpg">
+    <meta property="og:image" content="https://sajankarki.com.np/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sajankarki.com/">
+    <meta property="twitter:url" content="https://sajankarki.com.np/">
     <meta property="twitter:title" content="Sajan N. Karki | Fullstack Developer from Bhairahawa, Nepal">
     <meta property="twitter:description"
         content="Professional Fullstack Developer from Bhairahawa, Nepal. Expertise in TypeScript, React, and Node.js.">
-    <meta property="twitter:image" content="https://sajankarki.com/og-image.jpg">
+    <meta property="twitter:image" content="https://sajankarki.com.np/og-image.jpg">
 
     <!-- Preconnect to CDNs for speed -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,7 +70,7 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Sajan N. Karki",
-      "url": "https://sajankarki.com/",
+      "url": "https://sajankarki.com.np/",
       "jobTitle": "Fullstack Developer",
       "address": {
         "@type": "PostalAddress",
@@ -87,7 +87,7 @@
     }
     </script>
 
-    <!-- Tailwind CSS (Keep in head to avoid FOUC, but optimize config) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -123,8 +123,8 @@
         }
     </script>
     <!-- Core Scripts (Ordered for Reliability) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="./js/main.js?v=1.3" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="./js/main.js?v=1.4" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <!-- Non-critical scripts moved to bottom -->
 
@@ -217,12 +217,12 @@
                 <div class="flex items-center gap-4 md:gap-6">
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex items-center gap-6">
-                        <a href="#" @click.prevent="openExperience()"
-                            class="font-medium hover:text-secondary transition-colors">Experience</a>
-                        <a href="#" @click.prevent="openProjects()"
-                            class="font-medium hover:text-secondary transition-colors">Projects</a>
-                        <a href="#" @click.prevent="openBlogs()"
-                            class="font-medium hover:text-secondary transition-colors">Blogs</a>
+                        <button @click="openExperience()"
+                            class="font-medium hover:text-secondary transition-colors cursor-pointer">Experience</button>
+                        <button @click="openProjects()"
+                            class="font-medium hover:text-secondary transition-colors cursor-pointer">Projects</button>
+                        <button @click="openBlogs()"
+                            class="font-medium hover:text-secondary transition-colors cursor-pointer">Blogs</button>
                     </div>
 
 
@@ -248,12 +248,12 @@
                     x-transition:leave-start="opacity-100 translate-y-0"
                     x-transition:leave-end="opacity-0 translate-y-[-10px]"
                     class="absolute top-full left-0 w-full bg-[#F8F9FA] dark:bg-[#1D2625] border-b border-secondary/20 dark:border-secondary/10 p-8 flex flex-col gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.2)] md:hidden z-[100]">
-                    <a href="#" @click.prevent="openExperience(); mobileMenuOpen = false"
-                        class="text-lg font-medium hover:text-gray-500 transition-colors">Experience</a>
-                    <a href="#" @click.prevent="openProjects(); mobileMenuOpen = false"
-                        class="text-lg font-medium hover:text-gray-500 transition-colors">Projects</a>
-                    <a href="#" @click.prevent="openBlogs(); mobileMenuOpen = false"
-                        class="text-lg font-medium hover:text-gray-500 transition-colors">Blogs</a>
+                    <button @click="openExperience(); mobileMenuOpen = false"
+                        class="text-lg font-medium hover:text-gray-500 transition-colors text-left cursor-pointer">Experience</button>
+                    <button @click="openProjects(); mobileMenuOpen = false"
+                        class="text-lg font-medium hover:text-gray-500 transition-colors text-left cursor-pointer">Projects</button>
+                    <button @click="openBlogs(); mobileMenuOpen = false"
+                        class="text-lg font-medium hover:text-gray-500 transition-colors text-left cursor-pointer">Blogs</button>
                 </div>
             </nav>
         </header>
@@ -264,14 +264,14 @@
             <!-- Large Background Text Behind Image -->
             <div aria-hidden="true"
                 class="bg-watermark absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex-col pointer-events-none select-none z-0">
-                <h2
-                    class="text-[18vw] font-black tracking-[0.06em] text-primary/[0.05] dark:text-white/[0.05] uppercase whitespace-nowrap leading-[0.85] pl-[5vw]">
+                <span
+                    class="block text-[18vw] font-black tracking-[0.06em] text-primary/[0.05] dark:text-white/[0.05] uppercase whitespace-nowrap leading-[0.85] pl-[5vw]">
                     Sajan
-                </h2>
-                <h2
-                    class="text-[18vw] font-black tracking-[0.06em] text-primary/[0.05] dark:text-white/[0.05] uppercase whitespace-nowrap leading-[0.85] pl-[29vw]">
+                </span>
+                <span
+                    class="block text-[18vw] font-black tracking-[0.06em] text-primary/[0.05] dark:text-white/[0.05] uppercase whitespace-nowrap leading-[0.85] pl-[29vw]">
                     Karki
-                </h2>
+                </span>
             </div>
             <div class="max-w-6xl mx-auto w-full">
                 <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20"
@@ -280,7 +280,7 @@
                     <div x-ref="heroText"
                         class="flex-1 text-center md:text-left animate-fade-in-up space-y-4 md:space-y-6 order-2 md:order-1 relative z-10 will-change-transform">
                         <p
-                            class="font-mono text-black dark:text-white text-xs md:text-sm tracking-widest uppercase opacity-70">
+                            class="font-mono text-black dark:text-white text-xs md:text-sm tracking-widest uppercase opacity-80">
                             Hi, my name is</p>
                         <h1
                             class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-primary dark:text-white leading-[0.85] mb-4">
@@ -290,7 +290,7 @@
                             Fullstack & Backend Developer <br class="md:hidden"> in Bhairahawa
                         </h2>
 
-                        <p class="max-w-md text-muted text-sm md:text-base leading-relaxed mx-auto md:mx-0 opacity-90">
+                        <p class="max-w-md text-muted text-sm md:text-base leading-relaxed mx-auto md:mx-0">
                             Enthusiastic <strong>Fullstack developer in Bhairahawa</strong>, committed to building
                             scalable,
                             high-performance backend systems and pixel-perfect frontends for businesses in Nepal.
@@ -300,8 +300,8 @@
                         <div class="flex justify-center md:justify-start flex-wrap gap-4 pt-4">
                             <template x-for="social in socials">
                                 <a :href="social.link" target="_blank" rel="noopener noreferrer"
-                                    class="p-2 rounded-full border border-primary/10 text-muted hover:text-secondary hover:border-secondary transition-all duration-300 transform hover:scale-110">
-                                    <span class="sr-only" x-text="social.name"></span>
+                                    class="p-2 rounded-full border border-primary/10 text-muted hover:text-secondary hover:border-secondary transition-all duration-300 transform hover:scale-110"
+                                    :aria-label="'Visit ' + social.name">
                                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24" x-html="social.icon"></svg>
                                 </a>
@@ -324,7 +324,7 @@
                                 class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 group-hover:scale-[1.02] border border-gray-200 dark:border-gray-800 bg-[#e5e7eb] dark:bg-[#1f2937]">
                                 <img src="./images/sajan.jpg"
                                     alt="Sajan N. Karki - Top Fullstack Developer & Website Developer in Bhairahawa"
-                                    fetchpriority="high" loading="eager" decoding="async"
+                                    width="448" height="560" fetchpriority="high" loading="eager" decoding="async"
                                     class="w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-100">
                                 <!-- Overlay for depth -->
                                 <div
@@ -339,7 +339,7 @@
                 <div class="mt-12 w-full animate-fade-in-up" style="animation-delay: 0.4s;">
                     <div class="max-w-6xl mx-auto w-full px-6 mb-4">
                         <div class="flex items-center gap-6">
-                            <p class="text-[10px] font-mono uppercase tracking-[0.3em] opacity-50 whitespace-nowrap">
+                            <p class="text-[10px] font-mono uppercase tracking-[0.3em] opacity-60 whitespace-nowrap">
                                 Skills & Tools</p>
                             <div class="h-[1px] flex-grow bg-primary/10 dark:bg-white/10"></div>
                         </div>
@@ -396,14 +396,14 @@
         <!-- Footer -->
         <footer
             class="relative py-10 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
-            <p class="text-sm opacity-80">&copy; 2026 Sajan Karki. All rights reserved.</p>
+            <p class="text-sm opacity-90">&copy; 2026 Sajan Karki. All rights reserved.</p>
 
             <!-- Real-time Kathmandu Clock -->
             <div
                 class="mt-6 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
-                <div class="text-xs font-mono opacity-80 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
+                <div class="text-xs font-mono opacity-90 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
                 </div>
-                <div class="text-sm md:text-base font-bold tracking-tight opacity-70 leading-none" x-text="currentTime">
+                <div class="text-sm md:text-base font-bold tracking-tight opacity-80 leading-none" x-text="currentTime">
                 </div>
             </div>
         </footer>
@@ -432,7 +432,7 @@
         <div class="pt-12 md:pt-16 pb-20 px-4 md:px-20 max-w-7xl mx-auto flex-grow w-full">
             <h1 id="blogs-title" class="text-4xl md:text-6xl font-bold mb-4">Latest <span
                     class="opacity-60">Articles</span></h1>
-            <p class="text-lg opacity-70 mb-12 max-w-2xl">
+            <p class="text-lg opacity-80 mb-12 max-w-2xl">
                 Thoughts, tutorials, and insights on web development, system design, and more.
             </p>
 
@@ -445,14 +445,14 @@
                             class="flex flex-col-reverse md:flex-row justify-start items-start md:items-center gap-6 md:gap-8">
                             <div class="flex-grow flex flex-col gap-4 max-w-2xl">
                                 <div class="flex items-center gap-3">
-                                    <span class="text-xs font-mono opacity-50 uppercase tracking-[0.1em]"
+                                    <span class="text-xs font-mono opacity-60 uppercase tracking-[0.1em]"
                                         x-text="blog.date"></span>
-                                    <span class="w-1 h-1 rounded-full bg-secondary/30"></span>
-                                    <span class="text-xs font-mono opacity-50">5 min read</span>
+                                    <span class="w-1 h-1 rounded-full bg-secondary/30" aria-hidden="true"></span>
+                                    <span class="text-xs font-mono opacity-60">5 min read</span>
                                 </div>
                                 <h4 class="text-xl md:text-3xl font-bold tracking-tight leading-tight transition-colors"
                                     x-text="blog.title"></h4>
-                                <p class="text-sm md:text-base opacity-60 leading-relaxed line-clamp-2 md:line-clamp-3"
+                                <p class="text-sm md:text-base opacity-70 leading-relaxed line-clamp-2 md:line-clamp-3"
                                     x-text="blog.description"></p>
 
                                 <div
@@ -466,7 +466,8 @@
                             </div>
                             <div
                                 class="w-full md:w-48 lg:w-56 shrink-0 aspect-[4/3] md:aspect-square overflow-hidden rounded-2xl border border-secondary/10 bg-gray-100 dark:bg-gray-800">
-                                <img :src="blog.image" :alt="blog.title" decoding="async"
+                                <img :src="blog.image" :alt="blog.title" width="224" height="224" loading="lazy"
+                                    decoding="async"
                                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale-[20%] group-hover:grayscale-0">
                             </div>
                         </div>
@@ -478,13 +479,13 @@
         <!-- Overlay Footer -->
         <footer
             class="relative py-10 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
-            <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
+            <p class="text-sm opacity-70">&copy; 2026 Sajan Karki. All rights reserved.</p>
 
             <div
                 class="mt-4 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
-                <div class="text-xs font-mono opacity-40 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
+                <div class="text-xs font-mono opacity-60 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
                 </div>
-                <div class="text-sm md:text-base font-bold tracking-tight opacity-70 leading-none" x-text="currentTime">
+                <div class="text-sm md:text-base font-bold tracking-tight opacity-80 leading-none" x-text="currentTime">
                 </div>
             </div>
         </footer>
@@ -513,7 +514,7 @@
         <div class="pt-12 md:pt-16 pb-20 px-4 md:px-20 max-w-7xl mx-auto flex-grow w-full">
             <h1 id="projects-title" class="text-4xl md:text-6xl font-bold mb-4">My <span
                     class="opacity-60">Projects</span></h1>
-            <p class="text-lg opacity-70 mb-12 max-w-2xl">
+            <p class="text-lg opacity-80 mb-12 max-w-2xl">
                 A showcase of my recent work, side projects, and experiments.
             </p>
 
@@ -523,13 +524,14 @@
                     <a :href="project.link"
                         class="block rounded-3xl overflow-hidden border border-secondary/20 dark:border-secondary/10 hover:border-secondary/50 dark:hover:border-secondary/30 transition-all duration-300 group bg-white/40 dark:bg-surface hover:-translate-y-2 hover:shadow-2xl flex flex-col h-full">
                         <div class="h-56 overflow-hidden relative shrink-0 bg-gray-100 dark:bg-gray-800">
-                            <img :src="project.image" :alt="project.title" decoding="async"
+                            <img :src="project.image" :alt="project.title" width="400" height="224" loading="lazy"
+                                decoding="async"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <h4 class="text-xl font-bold group-hover:underline decoration-2 underline-offset-4 transition-all mb-3 text-gray-900 dark:text-gray-100"
                                 x-text="project.title"></h4>
-                            <p class="text-sm opacity-70 leading-relaxed mb-6 flex-grow text-gray-600 dark:text-gray-400"
+                            <p class="text-sm opacity-80 leading-relaxed mb-6 flex-grow text-gray-600 dark:text-gray-400"
                                 x-text="project.description"></p>
 
                             <!-- Tags -->
@@ -549,13 +551,13 @@
         <!-- Overlay Footer -->
         <footer
             class="relative py-10 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
-            <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
+            <p class="text-sm opacity-70">&copy; 2026 Sajan Karki. All rights reserved.</p>
 
             <div
                 class="mt-4 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
-                <div class="text-xs font-mono opacity-40 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
+                <div class="text-xs font-mono opacity-60 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
                 </div>
-                <div class="text-sm md:text-base font-bold tracking-tight opacity-70 leading-none" x-text="currentTime">
+                <div class="text-sm md:text-base font-bold tracking-tight opacity-80 leading-none" x-text="currentTime">
                 </div>
             </div>
         </footer>
@@ -583,7 +585,7 @@
         <div class="pt-12 md:pt-16 pb-20 px-4 md:px-20 max-w-7xl mx-auto flex-grow w-full">
             <h1 id="experience-title" class="text-4xl md:text-6xl font-bold mb-4">Work <span
                     class="opacity-60">Journey</span></h1>
-            <p class="text-lg opacity-70 mb-12 max-w-2xl">
+            <p class="text-lg opacity-80 mb-12 max-w-2xl">
                 My professional experience and the companies I've helped grow.
             </p>
 
@@ -616,7 +618,7 @@
                                         <!-- Card Content -->
                                         <div
                                             class="group p-6 md:p-8 rounded-2xl border border-primary/10 dark:border-white/10 bg-white/50 dark:bg-white/[0.02] backdrop-blur-sm hover:border-secondary/30 transition-all duration-500">
-                                            <div class="text-xs md:text-sm font-bold mb-2 tracking-wide opacity-50 uppercase"
+                                            <div class="text-xs md:text-sm font-bold mb-2 tracking-wide opacity-60 uppercase"
                                                 x-text="role.date"></div>
                                             <h4 class="text-xl md:text-2xl font-extrabold mb-3 leading-tight text-primary dark:text-white"
                                                 x-text="role.title"></h4>
@@ -635,7 +637,7 @@
         <!-- Overlay Footer -->
         <footer
             class="relative py-10 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
-            <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
+            <p class="text-sm opacity-70">&copy; 2026 Sajan Karki. All rights reserved.</p>
         </footer>
     </div>
 </body>

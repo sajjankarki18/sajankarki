@@ -7,23 +7,23 @@
     <title>Tech Blogs | Fullstack Developer from Bhairahawa - Sajan Karki</title>
     <meta name="description"
         content="Deep-dives into React, Node.js, and System Design by Sajan N. Karki, the leading Fullstack Developer from Bhairahawa, Nepal. Search and read my technical insights.">
-    <link rel="canonical" href="https://sajankarki.com/blogs.html">
+    <link rel="canonical" href="https://sajankarki.com.np/blogs.html">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sajankarki.com/blogs.html">
+    <meta property="og:url" content="https://sajankarki.com.np/blogs.html">
     <meta property="og:title" content="Tech Blogs | Sajan N. Karki - Fullstack Developer Bhairahawa">
     <meta property="og:description"
         content="Technical articles and insights from a professional Fullstack Developer in Bhairahawa, Nepal.">
-    <meta property="og:image" content="https://sajankarki.com/og-image.jpg">
+    <meta property="og:image" content="https://sajankarki.com.np/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://sajankarki.com/blogs.html">
+    <meta property="twitter:url" content="https://sajankarki.com.np/blogs.html">
     <meta property="twitter:title" content="Tech Blogs | Sajan N. Karki - Fullstack Developer Bhairahawa">
     <meta property="twitter:description"
         content="Technical articles and insights from a professional Fullstack Developer in Bhairahawa, Nepal.">
-    <meta property="twitter:image" content="https://sajankarki.com/og-image.jpg">
+    <meta property="twitter:image" content="https://sajankarki.com.np/og-image.jpg">
 
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +42,7 @@
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         media="print" onload="this.media='all'">
 
-    <!-- Tailwind CSS (Keep in head but optimized) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -73,11 +73,11 @@
         }
     </script>
     <!-- Core Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 
     <!-- App Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="./js/main.js?v=1.3" defer></script>
+    <script src="./js/main.js?v=1.4" defer></script>
     <!-- Non-critical scripts moved to bottom -->
 
     <style>
@@ -149,10 +149,10 @@
                 <div class="flex items-center gap-4 md:gap-6">
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex items-center gap-6">
-                        <a href="#" @click.prevent="openProjects()"
-                            class="font-medium hover:underline underline-offset-4 decoration-2">Projects</a>
-                        <a href="#" @click.prevent="openBlogs()"
-                            class="font-medium hover:underline underline-offset-4 decoration-2">Blogs</a>
+                        <button @click="openProjects()"
+                            class="font-medium hover:underline underline-offset-4 decoration-2 cursor-pointer">Projects</button>
+                        <button @click="openBlogs()"
+                            class="font-medium hover:underline underline-offset-4 decoration-2 cursor-pointer">Blogs</button>
                     </div>
 
                     <button @click="toggleTheme()" aria-label="Toggle dark mode"
@@ -192,10 +192,10 @@
                     x-transition:leave-start="opacity-100 translate-y-0"
                     x-transition:leave-end="opacity-0 translate-y-[-10px]"
                     class="absolute top-full left-0 w-full bg-secondary dark:bg-primary border-b border-gray-200 dark:border-gray-800 p-6 flex flex-col gap-4 shadow-xl md:hidden">
-                    <a href="#" @click.prevent="openProjects(); mobileMenuOpen = false"
-                        class="text-lg font-medium hover:text-gray-500 transition-colors">Projects</a>
-                    <a href="#" @click.prevent="openBlogs(); mobileMenuOpen = false"
-                        class="text-lg font-medium hover:text-gray-500 transition-colors">Blogs</a>
+                    <button @click="openProjects(); mobileMenuOpen = false"
+                        class="text-lg font-medium hover:text-gray-500 transition-colors text-left cursor-pointer">Projects</button>
+                    <button @click="openBlogs(); mobileMenuOpen = false"
+                        class="text-lg font-medium hover:text-gray-500 transition-colors text-left cursor-pointer">Blogs</button>
                 </div>
             </nav>
         </header>
@@ -239,13 +239,13 @@
         <!-- Footer -->
         <footer
             class="relative py-10 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
-            <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
+            <p class="text-sm opacity-70">&copy; 2026 Sajan Karki. All rights reserved.</p>
 
             <div
                 class="mt-4 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
-                <div class="text-[10px] font-mono opacity-30 uppercase tracking-[0.2em] leading-none mb-1">Kathmandu, NP
+                <div class="text-[10px] font-mono opacity-60 uppercase tracking-[0.2em] leading-none mb-1">Kathmandu, NP
                 </div>
-                <div class="text-xs font-bold tracking-tight opacity-60 leading-none" x-text="currentTime"></div>
+                <div class="text-xs font-bold tracking-tight opacity-80 leading-none" x-text="currentTime"></div>
             </div>
         </footer>
     </div>
@@ -284,13 +284,14 @@
                     <a :href="project.link"
                         class="block rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 group bg-white dark:bg-primary hover:-translate-y-1 hover:shadow-xl flex flex-col h-full">
                         <div class="h-56 overflow-hidden relative shrink-0">
-                            <img :src="project.image" alt="Project Image"
+                            <img :src="project.image" :alt="project.title" width="400" height="224" loading="lazy"
+                                decoding="async"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <h4 class="text-xl font-bold group-hover:underline decoration-2 underline-offset-4 transition-all mb-3 text-gray-900 dark:text-gray-100"
                                 x-text="project.title"></h4>
-                            <p class="text-sm opacity-70 leading-relaxed mb-6 flex-grow text-gray-600 dark:text-gray-400"
+                            <p class="text-sm opacity-80 leading-relaxed mb-6 flex-grow text-gray-600 dark:text-gray-400"
                                 x-text="project.description"></p>
 
                             <!-- Tags -->
@@ -310,13 +311,13 @@
         <!-- Overlay Footer -->
         <footer
             class="relative py-6 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
-            <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
+            <p class="text-sm opacity-70">&copy; 2026 Sajan Karki. All rights reserved.</p>
 
             <div
                 class="mt-4 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
-                <div class="text-[10px] font-mono opacity-30 uppercase tracking-[0.2em] leading-none mb-1">Kathmandu, NP
+                <div class="text-[10px] font-mono opacity-60 uppercase tracking-[0.2em] leading-none mb-1">Kathmandu, NP
                 </div>
-                <div class="text-xs font-bold tracking-tight opacity-60 leading-none" x-text="currentTime"></div>
+                <div class="text-xs font-bold tracking-tight opacity-80 leading-none" x-text="currentTime"></div>
             </div>
         </footer>
     </div>
@@ -326,7 +327,8 @@
         x-transition:enter-start="translate-y-full" x-transition:enter-end="translate-y-0"
         x-transition:leave="transition ease-in duration-700" x-transition:leave-start="translate-y-0"
         x-transition:leave-end="translate-y-full"
-        class="experience-overlay fixed inset-0 bg-white dark:bg-[#111] z-[60] overflow-y-auto">
+        class="experience-overlay fixed inset-0 bg-white dark:bg-[#111] z-[60] overflow-y-auto" role="dialog"
+        aria-modal="true" aria-labelledby="experience-overlay-title">
         <!-- Branding & Close -->
         <div
             class="sticky top-0 w-full p-4 md:p-6 flex justify-between items-center z-[70] backdrop-blur-md bg-white/80 dark:bg-[#111]/80 border-b border-black/5 dark:border-white/5 transition-all duration-300">
@@ -341,8 +343,8 @@
         </div>
 
         <div class="pt-12 md:pt-16 pb-20 px-4 md:px-20 max-w-6xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-bold mb-20 text-center dark:text-white">Where I've <span
-                    class="opacity-60">Worked</span></h1>
+            <h1 id="experience-overlay-title" class="text-4xl md:text-5xl font-bold mb-20 text-center dark:text-white">
+                Where I've <span class="opacity-60">Worked</span></h1>
 
             <!-- Timeline -->
             <div class="relative">
@@ -404,13 +406,13 @@
         <!-- Overlay Footer -->
         <footer
             class="relative py-6 px-4 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-center items-center max-w-6xl mx-auto w-full">
-            <p class="text-sm opacity-50">&copy; 2026 Sajan Karki. All rights reserved.</p>
+            <p class="text-sm opacity-70">&copy; 2026 Sajan Karki. All rights reserved.</p>
 
             <div
                 class="mt-4 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
-                <div class="text-[10px] font-mono opacity-30 uppercase tracking-[0.2em] leading-none mb-1">Kathmandu, NP
+                <div class="text-[10px] font-mono opacity-60 uppercase tracking-[0.2em] leading-none mb-1">Kathmandu, NP
                 </div>
-                <div class="text-xs font-bold tracking-tight opacity-60 leading-none" x-text="currentTime"></div>
+                <div class="text-xs font-bold tracking-tight opacity-80 leading-none" x-text="currentTime"></div>
             </div>
         </footer>
     </div>
