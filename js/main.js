@@ -76,7 +76,7 @@ document.addEventListener('alpine:init', () => {
             {
                 title: 'Junior Devs Use try-catch Everywhere. Senior Devs Use These 4 Exception Handling Patterns',
                 description: 'Try-catch on every method? That’s not safe code—that’s a ticking time bomb. Here’s what senior devs do instead.',
-                link: '#',
+                link: '/',
                 date: 'Feb 12, 2026',
                 image: './images/blogs/try-catch.png'
             },
@@ -126,19 +126,19 @@ document.addEventListener('alpine:init', () => {
                 title: 'Wrappers Wrap',
                 description: 'An eCommerce website focused on selling mobile covers with a modern, responsive, and user-friendly shopping experience.',
                 image: './images/projects/wrappers-portal.png',
-                link: '#',
+                link: '/',
             },
             {
                 title: 'Wrappers Wrap Portal',
                 description: 'An admin panel for managing products, orders, and content of the Wrappers Wrap eCommerce platform.',
                 image: './images/projects/letsdo-portal.png',
-                link: '#',
+                link: '/',
             },
             {
                 title: 'Letsdo Portal',
                 description: 'A powerful admin portal for managing the Letsdo multi-tenant eCommerce system, providing advanced controls and company-level features.',
                 image: './images/projects/letsdo-portal.webp',
-                link: '#',
+                link: '/',
             }
         ],
 

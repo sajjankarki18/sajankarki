@@ -4,28 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sajan N. Karki | Fullstack & Backend Developer in Bhairahawa</title>
+    <title>Sajan N. Karki | Software, Fullstack & Backend Developer in Bhairahawa</title>
     <meta name="description"
-        content="Sajan N. Karki is the top-rated Fullstack & Backend Developer in Bhairahawa, Nepal. Expert website developer specializing in high-performance React, Node.js, and scaling local businesses online.">
+        content="Sajan N. Karki is a top-rated Fullstack, Backend, and Software Developer serving Bhairahawa, Nepal. Expert in high-performance React, Node.js, and scalable systems.">
     <meta name="keywords"
-        content="Fullstack Developer Bhairahawa, Backend Developer Bhairahawa, Website Developer Bhairahawa, Web Developer Nepal, Sajan Karki Bhairahawa, Bhairahawa Software Engineer, React Developer Nepal">
+        content="Software Developer Bhairahawa, Fullstack Developer Bhairahawa, Backend Developer Bhairahawa, Web Developer Nepal, Sajan Karki Bhairahawa, Software Engineer Nepal">
     <meta name="author" content="Sajan N. Karki">
     <link rel="canonical" href="https://sajankarki.com.np/">
-
+    <meta name="theme-color" content="#0F0F0F">
+    <meta name="robots" content="index, follow">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sajankarki.com.np/">
-    <meta property="og:title" content="Sajan N. Karki | Fullstack Developer from Bhairahawa, Nepal">
+    <meta property="og:title" content="Sajan N. Karki | Software & Fullstack Developer in Bhairahawa">
     <meta property="og:description"
-        content="Professional Fullstack Developer from Bhairahawa, Nepal. Expertise in TypeScript, React, and Node.js.">
+        content="Professional Software, Fullstack, and Backend Developer serving Bhairahawa, Nepal. Expertise in TypeScript, React, and Node.js.">
     <meta property="og:image" content="https://sajankarki.com.np/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sajankarki.com.np/">
-    <meta property="twitter:title" content="Sajan N. Karki | Fullstack Developer from Bhairahawa, Nepal">
+    <meta property="twitter:title" content="Sajan N. Karki | Software & Fullstack Developer in Bhairahawa">
     <meta property="twitter:description"
-        content="Professional Fullstack Developer from Bhairahawa, Nepal. Expertise in TypeScript, React, and Node.js.">
+        content="Professional Software, Fullstack, and Backend Developer serving Bhairahawa, Nepal. Expertise in TypeScript, React, and Node.js.">
     <meta property="twitter:image" content="https://sajankarki.com.np/og-image.jpg">
 
     <!-- Preconnect to CDNs for speed -->
@@ -71,19 +72,20 @@
       "@type": "Person",
       "name": "Sajan N. Karki",
       "url": "https://sajankarki.com.np/",
-      "jobTitle": "Fullstack Developer",
+      "jobTitle": "Software Developer",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Bhairahawa",
         "addressRegion": "Lumbini",
         "addressCountry": "Nepal"
       },
+      "areaServed": ["Bhairahawa", "Lumbini"],
       "sameAs": [
         "https://github.com/sajjankarki18",
         "https://www.linkedin.com/in/sajan-n-karki-67a03931a/"
       ],
-      "description": "Top-rated Fullstack and Backend Developer in Bhairahawa, Nepal. Sajan N. Karki provides professional website development and software engineering services.",
-      "knowsAbout": ["Web Development", "Backend Development", "React", "Node.js", "Fullstack Development", "Digital Marketing", "SEO"]
+      "description": "Top-rated Fullstack, Backend and Software Developer in Bhairahawa, Nepal. Sajan N. Karki provides professional website development and scalable backend systems.",
+      "knowsAbout": ["Software Development", "Backend Development", "Fullstack Development", "React", "Node.js", "Digital Marketing", "SEO"]
     }
     </script>
 
@@ -229,7 +231,7 @@
 
                     <!-- Mobile Menu Button -->
                     <button @click="mobileMenuOpen = !mobileMenuOpen" aria-label="Toggle mobile menu"
-                        class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                        class="md:hidden p-3 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round"
@@ -287,11 +289,12 @@
                             Sajan N.<br class="hidden md:block"> Karki
                         </h1>
                         <h2 class="text-lg sm:text-xl md:text-3xl font-bold text-secondary leading-tight">
-                            Fullstack & Backend Developer <br class="md:hidden"> in Bhairahawa
+                            Software & Fullstack Developer <br class="md:hidden"> in Bhairahawa
                         </h2>
 
                         <p class="max-w-md text-muted text-sm md:text-base leading-relaxed mx-auto md:mx-0">
-                            Enthusiastic <strong>Fullstack developer in Bhairahawa</strong>, committed to building
+                            Enthusiastic <strong>Software Developer in Bhairahawa</strong>, committed to
+                            building
                             scalable,
                             high-performance backend systems and pixel-perfect frontends for businesses in Nepal.
                         </p>
@@ -300,7 +303,7 @@
                         <div class="flex justify-center md:justify-start flex-wrap gap-4 pt-4">
                             <template x-for="social in socials">
                                 <a :href="social.link" target="_blank" rel="noopener noreferrer"
-                                    class="p-2 rounded-full border border-primary/10 text-muted hover:text-secondary hover:border-secondary transition-all duration-300 transform hover:scale-110"
+                                    class="p-3 rounded-full border border-primary/10 text-muted hover:text-secondary hover:border-secondary transition-all duration-300 transform hover:scale-110"
                                     :aria-label="'Visit ' + social.name">
                                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24" x-html="social.icon"></svg>
@@ -323,7 +326,7 @@
                             <div
                                 class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 group-hover:scale-[1.02] border border-gray-200 dark:border-gray-800 bg-[#e5e7eb] dark:bg-[#1f2937]">
                                 <img src="./images/sajan.jpg"
-                                    alt="Sajan N. Karki - Top Fullstack Developer & Website Developer in Bhairahawa"
+                                    alt="Sajan N. Karki - Top Software, Fullstack & Backend Developer in Bhairahawa"
                                     width="448" height="560" fetchpriority="high" loading="eager" decoding="async"
                                     class="w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-100">
                                 <!-- Overlay for depth -->
@@ -339,7 +342,7 @@
                 <div class="mt-12 w-full animate-fade-in-up" style="animation-delay: 0.4s;">
                     <div class="max-w-6xl mx-auto w-full px-6 mb-4">
                         <div class="flex items-center gap-6">
-                            <p class="text-[10px] font-mono uppercase tracking-[0.3em] opacity-60 whitespace-nowrap">
+                            <p class="text-[10px] font-mono uppercase tracking-[0.3em] opacity-80 whitespace-nowrap">
                                 Skills & Tools</p>
                             <div class="h-[1px] flex-grow bg-primary/10 dark:bg-white/10"></div>
                         </div>
@@ -421,7 +424,7 @@
             class="sticky top-0 w-full p-4 md:p-6 flex justify-between items-center z-[70] backdrop-blur-md bg-light/80 dark:bg-primary/80 border-b border-primary/5 dark:border-white/5 transition-all duration-300">
             <div class="text-xl font-bold tracking-tighter text-primary dark:text-white">Sajan Karki</div>
             <button @click="closeBlogs()" aria-label="Close blogs overlay"
-                class="close-btn p-2 rounded-full bg-primary/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors">
+                class="close-btn p-3 rounded-full bg-primary/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary dark:text-white" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -430,8 +433,8 @@
         </div>
 
         <div class="pt-12 md:pt-16 pb-20 px-4 md:px-20 max-w-7xl mx-auto flex-grow w-full">
-            <h1 id="blogs-title" class="text-4xl md:text-6xl font-bold mb-4">Latest <span
-                    class="opacity-60">Articles</span></h1>
+            <h2 id="blogs-title" class="text-4xl md:text-6xl font-bold mb-4">Latest <span
+                    class="opacity-60">Articles</span></h2>
             <p class="text-lg opacity-80 mb-12 max-w-2xl">
                 Thoughts, tutorials, and insights on web development, system design, and more.
             </p>
@@ -445,10 +448,10 @@
                             class="flex flex-col-reverse md:flex-row justify-start items-start md:items-center gap-6 md:gap-8">
                             <div class="flex-grow flex flex-col gap-4 max-w-2xl">
                                 <div class="flex items-center gap-3">
-                                    <span class="text-xs font-mono opacity-60 uppercase tracking-[0.1em]"
+                                    <span class="text-xs font-mono opacity-80 uppercase tracking-[0.1em]"
                                         x-text="blog.date"></span>
                                     <span class="w-1 h-1 rounded-full bg-secondary/30" aria-hidden="true"></span>
-                                    <span class="text-xs font-mono opacity-60">5 min read</span>
+                                    <span class="text-xs font-mono opacity-80">5 min read</span>
                                 </div>
                                 <h4 class="text-xl md:text-3xl font-bold tracking-tight leading-tight transition-colors"
                                     x-text="blog.title"></h4>
@@ -483,7 +486,7 @@
 
             <div
                 class="mt-4 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
-                <div class="text-xs font-mono opacity-60 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
+                <div class="text-xs font-mono opacity-80 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
                 </div>
                 <div class="text-sm md:text-base font-bold tracking-tight opacity-80 leading-none" x-text="currentTime">
                 </div>
@@ -503,7 +506,7 @@
             class="sticky top-0 w-full p-4 md:p-6 flex justify-between items-center z-[70] backdrop-blur-md bg-light/80 dark:bg-primary/80 border-b border-primary/5 dark:border-white/5 transition-all duration-300">
             <div class="text-xl font-bold tracking-tighter text-primary dark:text-white">Sajan Karki</div>
             <button @click="closeProjects()" aria-label="Close projects overlay"
-                class="close-btn p-2 rounded-full bg-primary/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors">
+                class="close-btn p-3 rounded-full bg-primary/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary dark:text-white" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -512,8 +515,8 @@
         </div>
 
         <div class="pt-12 md:pt-16 pb-20 px-4 md:px-20 max-w-7xl mx-auto flex-grow w-full">
-            <h1 id="projects-title" class="text-4xl md:text-6xl font-bold mb-4">My <span
-                    class="opacity-60">Projects</span></h1>
+            <h2 id="projects-title" class="text-4xl md:text-6xl font-bold mb-4">My <span
+                    class="opacity-60">Projects</span></h2>
             <p class="text-lg opacity-80 mb-12 max-w-2xl">
                 A showcase of my recent work, side projects, and experiments.
             </p>
@@ -555,7 +558,7 @@
 
             <div
                 class="mt-4 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end pointer-events-none select-none">
-                <div class="text-xs font-mono opacity-60 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
+                <div class="text-xs font-mono opacity-80 uppercase tracking-[0.2em] leading-none mb-1.5">Kathmandu, NP
                 </div>
                 <div class="text-sm md:text-base font-bold tracking-tight opacity-80 leading-none" x-text="currentTime">
                 </div>
@@ -574,7 +577,7 @@
             class="sticky top-0 w-full p-4 md:p-6 flex justify-between items-center z-[70] backdrop-blur-md bg-light/80 dark:bg-primary/80 border-b border-primary/5 dark:border-white/5 transition-all duration-300">
             <div class="text-xl font-bold tracking-tighter text-primary dark:text-white">Sajan Karki</div>
             <button @click="closeExperience()" aria-label="Close experience overlay"
-                class="close-btn p-2 rounded-full bg-primary/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors">
+                class="close-btn p-3 rounded-full bg-primary/5 dark:bg-white/5 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary dark:text-white" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -583,8 +586,8 @@
         </div>
 
         <div class="pt-12 md:pt-16 pb-20 px-4 md:px-20 max-w-7xl mx-auto flex-grow w-full">
-            <h1 id="experience-title" class="text-4xl md:text-6xl font-bold mb-4">Work <span
-                    class="opacity-60">Journey</span></h1>
+            <h2 id="experience-title" class="text-4xl md:text-6xl font-bold mb-4">Work <span
+                    class="opacity-60">Journey</span></h2>
             <p class="text-lg opacity-80 mb-12 max-w-2xl">
                 My professional experience and the companies I've helped grow.
             </p>
@@ -618,7 +621,7 @@
                                         <!-- Card Content -->
                                         <div
                                             class="group p-6 md:p-8 rounded-2xl border border-primary/10 dark:border-white/10 bg-white/50 dark:bg-white/[0.02] backdrop-blur-sm hover:border-secondary/30 transition-all duration-500">
-                                            <div class="text-xs md:text-sm font-bold mb-2 tracking-wide opacity-60 uppercase"
+                                            <div class="text-xs md:text-sm font-bold mb-2 tracking-wide opacity-80 uppercase"
                                                 x-text="role.date"></div>
                                             <h4 class="text-xl md:text-2xl font-extrabold mb-3 leading-tight text-primary dark:text-white"
                                                 x-text="role.title"></h4>
